@@ -1,0 +1,22 @@
+server:
+  port:9090
+
+spring:
+  application:
+    name:
+  redis:
+    host:
+    port:
+    timeout:
+  datasource:
+    dynamic:
+      primary:
+      strict:
+      datasource:
+        master:
+          driverClassName:
+          url:
+          username:
+          password:
+          hikari:
+            max-lifetime:
