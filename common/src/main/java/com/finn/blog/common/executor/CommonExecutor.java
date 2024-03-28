@@ -1,6 +1,5 @@
 package com.finn.blog.common.executor;
 
-import com.finn.blog.api.common.BusinessErrorEnum;
 import com.finn.blog.common.exception.BusinessException;
 import com.finn.blog.common.lock.DistributeLock;
 import com.finn.blog.common.service.LockService;

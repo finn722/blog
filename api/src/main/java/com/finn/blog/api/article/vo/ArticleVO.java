@@ -1,5 +1,7 @@
 package com.finn.blog.api.article.vo;
 
+import com.finn.blog.api.article.enums.ArticleTag;
+import com.finn.blog.api.article.enums.ArticleType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -17,13 +19,13 @@ public class ArticleVO implements Serializable {
     @ApiModelProperty("content")
     private String content;
     /**
-     * @see com.finn.blog.api.article.enums.ArticleType
+     * @see ArticleType
      */
     @ApiModelProperty("type")
     private String type;
     @ApiModelProperty("tag,like personal or forward")
     /**
-     * @see com.finn.blog.api.article.enums.ArticleTag
+     * @see ArticleTag
      */
     private String tag;
     @ApiModelProperty("visible")

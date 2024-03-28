@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 @Slf4j
 @EnableAsync
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.finn.blog","com.finn.blog.id"})
 public class ArticleApplication {
 
     public static void main(String[] args) {

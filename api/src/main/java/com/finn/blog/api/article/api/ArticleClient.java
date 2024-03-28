@@ -5,38 +5,29 @@ import com.finn.blog.api.article.vo.ArticleVO;
 import com.finn.blog.api.article.vo.QueryArticleReq;
 import com.finn.blog.api.article.vo.QueryArticleRes;
 import com.finn.blog.api.common.Response;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-@Api(value = "ArticleClient", tags = "Article")
+
 public interface ArticleClient {
+
     /**
-     *
+     * query all article list, support paging, sorting, filtering
+     *        - paging: page number, page size
+     *        - sorting: sort by create time, update time, view count, comment count
+     *        - filtering: filter by title, author, create time, update time, status, type, tag, category
+     *        - return: article list, total count
+     * @param req
+     * @return
      */
-    @PostMapping("/article/query")
-    @ApiOperation(value = "query", notes = "query article")
     Response<QueryArticleRes> query(@RequestBody QueryArticleReq req);
 
-    @PostMapping("/article/save")
-    @ApiOperation(value = "save", notes = "save article")
+    /**
+     * add one new article
+     * @param articleVO
+     * @return
+     */
     Response<Void> save(@RequestBody ArticleVO articleVO);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

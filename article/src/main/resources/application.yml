@@ -1,22 +1,21 @@
 server:
-  port:9090
+  port: 9090
 
 spring:
   application:
-    name:
-  redis:
-    host:
-    port:
-    timeout:
+    name: article
   datasource:
     dynamic:
-      primary:
-      strict:
+      primary: master
+      strict: true
       datasource:
         master:
-          driverClassName:
-          url:
-          username:
-          password:
-          hikari:
-            max-lifetime:
+          driverClassName: com.mysql.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/blog
+          username: root
+          password: root
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+
+

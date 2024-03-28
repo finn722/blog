@@ -1,12 +1,9 @@
-package com.finn.blog.api.config;
+package com.finn.blog.article.config;
 
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -23,15 +20,14 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
-                .paths(PathSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("com.finn.blog.article.controller"))
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Blog API")
-                .description("Blog API")
+                .title("Blog Article API")
+                .description("Blog article API")
                 .contact(new Contact("Finn", "http://localhost:8080/", ""))
                 .termsOfServiceUrl("http://localhost:8080/")
                 .version("1.0")

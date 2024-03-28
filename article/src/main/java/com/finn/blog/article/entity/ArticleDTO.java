@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.finn.blog.api.article.enums.ArticleStatus;
+import com.finn.blog.api.article.enums.ArticleTag;
+import com.finn.blog.api.article.enums.ArticleType;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -15,7 +17,7 @@ import java.util.Date;
 public class ArticleDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     @TableId(value = "id",type = IdType.AUTO )
-    public long id;
+    public Long id;
     @TableField("article_id")
     public String articleId;
     @TableField("title")
@@ -23,21 +25,21 @@ public class ArticleDTO implements Serializable {
     @TableField("author")
     private String author;
     /**
-     * @see com.finn.blog.api.article.enums.ArticleStatus
+     * @see ArticleStatus
      */
     @TableField("status")
     private String status;
     @TableField("visible")
     private  boolean visible;
     /**
-     * @see com.finn.blog.api.article.enums.ArticleType
+     * @see ArticleType
      */
     @TableField("type")
     private String type;
     @TableField("content")
     private Date publishDate;
     /**
-     * @see com.finn.blog.api.article.enums.ArticleTag
+     * @see ArticleTag
      */
     @TableField("tag")
     private String tag;
