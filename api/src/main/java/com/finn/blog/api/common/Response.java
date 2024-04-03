@@ -21,6 +21,15 @@ public class Response<T> implements Serializable {
         this.message = message;
     }
 
+    public static <T> Response<T> ok(T data){
+        Response<T> response = new Response<>();
+        response.setCode(BusinessErrorEnum.SUCCESS.getCode());
+        response.setMessage(BusinessErrorEnum.SUCCESS.getMessage());
+        response.setData(data);
+        return response;
+    }
+
+
     public void setData(T data) {
         this.data = data;
     }

@@ -8,6 +8,7 @@ spring:
     dynamic:
       primary: master
       strict: true
+
       datasource:
         master:
           driverClassName: com.mysql.jdbc.Driver

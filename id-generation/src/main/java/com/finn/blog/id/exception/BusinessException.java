@@ -1,8 +1,9 @@
-package com.finn.blog.common.exception;
+package com.finn.blog.id.exception;
 
 import com.finn.blog.api.common.BusinessErrorEnum;
 
 public class BusinessException extends RuntimeException{
+
 
     final BusinessErrorEnum errorEnum;
 
@@ -17,6 +18,4 @@ public class BusinessException extends RuntimeException{
     public String getMessage(){
         return this.errorEnum.getMessage();
     }
-
-
 }

@@ -1,6 +1,8 @@
 package com.finn.blog.api.article.api;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.finn.blog.api.article.vo.ArticleVO;
 import com.finn.blog.api.article.vo.QueryArticleReq;
 import com.finn.blog.api.article.vo.QueryArticleRes;
@@ -17,17 +19,21 @@ public interface ArticleClient {
      *        - sorting: sort by create time, update time, view count, comment count
      *        - filtering: filter by title, author, create time, update time, status, type, tag, category
      *        - return: article list, total count
-     * @param req
-     * @return
+     * @param req request
+     * @return Response<QueryArticleRes>
      */
     Response<QueryArticleRes> query(@RequestBody QueryArticleReq req);
 
     /**
      * add one new article
-     * @param articleVO
-     * @return
+     * @param articleVO request body
+     * @return Response<Void>
      */
-    Response<Void> save(@RequestBody ArticleVO articleVO);
+    Response<Boolean> save(@RequestBody ArticleVO articleVO);
+
+    Response<IPage<ArticleVO>> queryByPage(@RequestBody Page<ArticleVO> page, @RequestBody ArticleVO articleVO);
+    Response<IPage<ArticleVO>> pageQuery();
+
 
 
 }

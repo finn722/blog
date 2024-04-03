@@ -18,22 +18,24 @@ public class ArticleVO implements Serializable {
     private String author;
     @ApiModelProperty("content")
     private String content;
+
+    private String status;
+    @ApiModelProperty("visible")
+    private boolean visible;
     /**
      * @see ArticleType
      */
     @ApiModelProperty("type")
-    private String type;
+    private int type;
     @ApiModelProperty("tag,like personal or forward")
     /**
      * @see ArticleTag
      */
     private String tag;
-    @ApiModelProperty("visible")
-    private int visible;
     @ApiModelProperty("commentable")
-    private int commentable;
+    private boolean commentable;
     @ApiModelProperty("top")
-    private int top;
+    private boolean top;
     @ApiModelProperty("words")
     private long words;
 

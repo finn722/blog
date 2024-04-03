@@ -25,5 +25,7 @@ public class DistributeLock {
     }
 
 
-
+    public void unlock() {
+        lockService.unlock(lockKey);
+    }
 }

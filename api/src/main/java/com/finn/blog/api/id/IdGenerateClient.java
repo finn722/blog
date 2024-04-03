@@ -13,7 +13,7 @@ public interface IdGenerateClient {
     @GetMapping("/id/generate")
     String generateIdByUUID();
 
-    String generateIdBySnowFlake();
+    long generateSegmentId();
 
       
 }

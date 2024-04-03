@@ -16,7 +16,7 @@ import java.util.Date;
 @TableName("t_article")
 public class ArticleDTO implements Serializable {
     private static final long serialVersionUID = 1L;
-    @TableId(value = "id",type = IdType.AUTO )
+    @TableId(value = "id", type = IdType.AUTO)
     public Long id;
     @TableField("article_id")
     public String articleId;
@@ -30,26 +30,33 @@ public class ArticleDTO implements Serializable {
     @TableField("status")
     private String status;
     @TableField("visible")
-    private  boolean visible;
+    private boolean visible;
     /**
      * @see ArticleType
      */
     @TableField("type")
-    private String type;
-    @TableField("content")
+    private int type;
+    @TableField("publish_date")
     private Date publishDate;
     /**
      * @see ArticleTag
      */
     @TableField("tag")
     private String tag;
+
+    @TableField("commentable")
+    private boolean commentable;
+
+    @TableField("top")
+    private boolean top;
+
     @TableField("create_time")
     private Date createTime;
     @TableField("update_time")
     private Date updateTime;
 
 
-    public void init(String articleId){
+    public void init(String articleId) {
         this.createTime = new Date();
         this.updateTime = new Date();
         this.articleId = articleId;

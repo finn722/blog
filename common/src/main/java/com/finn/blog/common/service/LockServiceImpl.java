@@ -3,22 +3,12 @@ package com.finn.blog.common.service;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.params.SetParams;
 
+import javax.annotation.Resource;
+
 public class LockServiceImpl implements LockService{
 
+    @Resource
     private Jedis jedis;
-
-    private String lockKey;
-
-    private boolean locked;
-
-//    @Override
-//    public boolean lock(String lockKey, long lockTime) {
-//        long id = Thread.currentThread().getId();
-//        jedis.setex(lockKey, (int) lockTime, String.valueOf(id));
-//        return true;
-//
-//
-//    }
 
     @Override
     public boolean lock(String lockKey, long lockTime) {
@@ -27,8 +17,9 @@ public class LockServiceImpl implements LockService{
         if (currentOwner != null && currentOwner.equals(String.valueOf(id))) {
             return true;
         }
+        String result = jedis.set(lockKey, String.valueOf(id),new SetParams().nx().ex(lockTime));
         
-        return (jedis.set(lockKey, String.valueOf(id),new SetParams().nx().ex(lockTime))) != null;
+        return result != null && result.equals("ok");
     }
 
     public void unlock(String lockKey){
